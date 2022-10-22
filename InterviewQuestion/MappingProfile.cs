@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using InterviewQuestion.API.DTOs;
+using InterviewQuestion.Domain.DTOs;
 using InterviewQuestion.Domain.TerminalTransactions;
 
 namespace InterviewQuestion.API
@@ -10,6 +11,7 @@ namespace InterviewQuestion.API
         {
             CreateMap<TerminalTransaction, TerminalTransactionItem>();
             CreateMap<TerminalTransaction, TerminalTransactionAddDto>().ReverseMap();
+            CreateMap<TerminalTransaction, TerminalTransactionUpdateDto>().ReverseMap();
         }
     }
 }

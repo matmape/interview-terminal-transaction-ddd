@@ -2,6 +2,7 @@
 using InterviewQuestion.API.DTOs;
 using InterviewQuestion.API.StaticConfigurations;
 using InterviewQuestion.API.Validators;
+using InterviewQuestion.Domain.DTOs;
 using InterviewQuestion.Domain.Shared;
 using InterviewQuestion.Domain.TerminalTransactions;
 
@@ -40,7 +41,7 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
 				var entity = _mapper.Map<TerminalTransaction>(model);
 				entity.DateCreated = DateTime.UtcNow;
 				await _repository.InsertAsync(entity);
-				
+				await _repository.SaveChangesAsync();
                 response = Response<TerminalTransactionAddResponse>.Success(new TerminalTransactionAddResponse()
 				{
 					Message = "Created successfully"
@@ -76,7 +77,7 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
 				_mapper.Map(model, entity);
 				entity.LastUpdatedOn = DateTime.UtcNow;
 				await _repository.UpdateAsync(entity);
-				
+                await _repository.SaveChangesAsync();
                 response = Response<TerminalTransactionUpdateResponse>.Success(new TerminalTransactionUpdateResponse()
 				{
 					Id = model.Id,
@@ -96,12 +97,12 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
         {
 			try
 			{
-				var terminalData = _repository.GetData();
-				var totalCount = terminalData.Count;
-				return Response<PagedList<TerminalTransactionItem>>.Success(new PagedList<TerminalTransactionItem>()
+				var totalCount = 0;
+
+                var entities = _repository.GetTerminalTransactionPaged(page, pagesize, out totalCount, filter).ToList();
+                return Response<PagedList<TerminalTransactionItem>>.Success(new PagedList<TerminalTransactionItem>()
 				{
-					Items = terminalData.Select(c => _mapper.Map<TerminalTransactionItem>(c))
-					.Skip((page - 1) * pagesize).Take(pagesize).ToList(),
+					Items = ProcessQuery(entities),                     
 					Total = totalCount
                 }) ;
 			}
@@ -110,15 +111,21 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
 				return await Task.FromResult(Response<PagedList<TerminalTransactionItem>>.Failed(ErrorMessages.Error_Loading_Content));
 			}
         }
-		public async Task<Response<IEnumerable<TerminalTransactionItem>>> QueryTransactions(int page, int pagesize, TerminalTransactionFilter filter)
+        private List<TerminalTransactionItem> ProcessQuery(IEnumerable<TerminalTransaction> entities)
+        {
+            return entities.ToList().Select(c =>
+            {
+                var item = _mapper.Map<TerminalTransactionItem>(c);
+                return item;
+
+            }).ToList();
+        }
+        public async Task<Response<IEnumerable<TerminalTransactionItem>>> QueryTransactions(int page, int pagesize, TerminalTransactionFilter filter)
         {
 			try
 			{
-				var terminalData = _repository.GetData();
-				var entities = terminalData.Select(c => _mapper.Map<TerminalTransactionItem>(c))
-					.Skip((page - 1) * pagesize).Take(pagesize).ToList();
-
-                return Response<IEnumerable<TerminalTransactionItem>>.Success(entities) ;
+                var entities = _repository.GetTerminalTransactionPaged(page, pagesize, filter).ToList();
+                return Response<IEnumerable<TerminalTransactionItem>>.Success(ProcessQuery(entities	));
 			}
 			catch (Exception)
 			{
@@ -153,7 +160,7 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
                 if (entity == null) return Response<TerminalTransactionDeleteResponse>.Failed("Record not found");
 
                 await _repository.DeleteAsync(entity);
-
+                await _repository.SaveChangesAsync();
                 response = Response<TerminalTransactionDeleteResponse>.Success(new TerminalTransactionDeleteResponse()
                 {
                     Message = "Deleted successfully"
@@ -167,5 +174,25 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
             }
             return await Task.FromResult(response);
         }
+
+		public async Task<Response<DashboardModel>> GetDashboard()
+		{
+			try
+			{
+				return Response<DashboardModel>.Success(new DashboardModel()
+				{
+					StockCount = 989,
+					TransactionVolume = _repository.TableAsync.Sum(c=>c.Amount),
+					UserCount = 5688,
+					WithdrawalCount= 245
+				});
+
+            }
+			catch (Exception ex)
+			{
+				return await Task.FromResult(Response<DashboardModel>.Failed(ErrorMessages.Generic_Error));
+
+            }
+		}
 	}
 }

@@ -12,15 +12,15 @@ namespace InterviewQuestion.Domain.TerminalTransactions
         public string TransactionReference { get; set; }
         public string CurrencyCode { get; set; }
         public string AgentName { get; set; }
-        public string GeoLocation { get; set; }
+        public string? GeoLocation { get; set; }
         public string ResponseCode { get; set; }
         public string ResponseMessage { get; set; }
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         public string TerminalId { get; set; }
         public DateTime PaymentDate { get; set; }
         public string Processor { get; set; }
-        public double TmsAmount { get; set; }
-        public double Surcharge { get; set; }
+        public decimal TmsAmount { get; set; }
+        public decimal Surcharge { get; set; }
         public DateTime? LastUpdatedOn { get; set; }
     }
 }

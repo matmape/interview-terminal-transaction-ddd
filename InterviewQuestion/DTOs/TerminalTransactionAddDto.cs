@@ -10,6 +10,7 @@
         public string ResponseMessage { get; set; }
         public double Amount { get; set; }
         public string Processor { get; set; }
+        public string TerminalId { get; set; }
         public double Surcharge => 10.75;
     }
     public class TerminalTransactionUpdateDto

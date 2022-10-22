@@ -1,4 +1,5 @@
 ﻿using InterviewQuestion.API.DTOs;
+using InterviewQuestion.Domain.DTOs;
 using InterviewQuestion.Domain.Shared;
 
 namespace InterviewQuestion.API.Services.TerminalTransactions
@@ -11,5 +12,6 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
         Task<Response<TerminalTransactionUpdateResponse>> Update(TerminalTransactionUpdateDto model);
         Task<Response<TerminalTransactionItem>> GetById(int id);
         Task<Response<TerminalTransactionDeleteResponse>> Delete(int id);
+        Task<Response<DashboardModel>> GetDashboard();
     }
 }

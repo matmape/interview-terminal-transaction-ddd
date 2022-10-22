@@ -13,4 +13,11 @@
     {
         public string Message { get; set; }
     }
+    public class DashboardModel
+    {
+        public decimal TransactionVolume { get; set; }
+        public decimal UserCount { get; set; }
+        public decimal StockCount { get; set; }
+        public decimal WithdrawalCount { get; set; }
+    }
 }

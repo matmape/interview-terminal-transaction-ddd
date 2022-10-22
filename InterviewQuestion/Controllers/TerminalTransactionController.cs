@@ -2,6 +2,7 @@ using InterviewQuestion.API;
 using InterviewQuestion.API.DTOs;
 using InterviewQuestion.API.Services.TerminalTransactions;
 using InterviewQuestion.API.StaticConfigurations;
+using InterviewQuestion.Domain.DTOs;
 using InterviewQuestion.Domain.Shared;
 using Microsoft.AspNetCore.Mvc;
 

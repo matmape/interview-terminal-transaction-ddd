@@ -22,6 +22,7 @@ namespace InterviewQuestion.Domain.Interfaces
 
          Task UpdateAsync(T entity);
          Task DeleteAsync(T entity);
-         
+         Task SaveChangesAsync();
+        int Count(Expression<Func<T, bool>> predicate);
     }
 }

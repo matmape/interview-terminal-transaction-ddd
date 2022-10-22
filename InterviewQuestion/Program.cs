@@ -65,20 +65,16 @@ namespace InterviewQuestion
         {
             using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                SendDatabase(scope);
+                SeedDatabase(scope);
             }
             Console.WriteLine("Done seeding database.");
         }
-        public static void SendDatabase(IServiceScope serviceScope)
+        public static void SeedDatabase(IServiceScope serviceScope)
         {
             try
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                context.Database.Migrate();
-
-                var transactions = TerminalTransactionData.GetData();
-                context.TerminalTransactions.AddRange(transactions);
-                context.SaveChanges();
+                 
             }
             catch (Exception ex)
             {

@@ -68,5 +68,13 @@ namespace InterviewQuestion.Infrastructure.Data.Repositories
         {
             _context.Entry(entity).State = EntityState.Deleted;
         }
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+        public int Count(Expression<Func<T, bool>> predicate)
+        {
+            return Fetch(predicate).Count();
+        }
     }
 }
