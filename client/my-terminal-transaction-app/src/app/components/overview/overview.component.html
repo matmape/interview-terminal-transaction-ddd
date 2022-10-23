@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="card user-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 d-flex flex-column border-container-lg">
+                        <div class="d-flex align-items-center user-total-numbers justify-content-between">
+                            <div class="d-flex">
+                                <h5 class="mx-1">Hello,</h5>
+                                <h5>Administrator</h5>
+                            </div>
+                            <div class="d-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="bg-white my-2 p-2 ng-star-inserted">
+    <div class="row">
+        <div class="col-sm-6 col-xl-3">
+            <div class="card p-2">
+                <div class="media">
+                    <div class="avatar bg-light-danger mr-2">
+                        <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-box avatar-icon">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg></div>
+                    </div>
+                    <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">{{overview.userCount}}</h4>
+                        <p class="card-text font-small-3 mb-0">Users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card p-2">
+                <div class="media">
+                    <div class="avatar bg-light-warning mr-2">
+                        <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-box avatar-icon">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg></div>
+                    </div>
+                    <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">{{overview.transactionVolume | currency: '&#8358;'}}</h4>
+                        <p class="card-text font-small-3 mb-0">Transaction Value</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card p-2">
+                <div class="media">
+                    <div class="avatar bg-light-warning mr-2">
+                        <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-box avatar-icon">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg></div>
+                    </div>
+                    <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">{{overview.stockCount }}</h4>
+                        <p class="card-text font-small-3 mb-0">Inventory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card p-2">
+                <div class="media">
+                    <div class="avatar bg-light-primary mr-2">
+                        <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-credit-card avatar-icon">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg></div>
+                    </div>
+                    <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">{{overview.withdrawalCount }}</h4>
+                        <p class="card-text font-small-3 mb-0">Withdrawals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5">
+        <app-terminal-transactions></app-terminal-transactions>
+    </div>
+</div>

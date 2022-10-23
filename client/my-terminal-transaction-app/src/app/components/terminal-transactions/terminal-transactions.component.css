@@ -1,0 +1,11 @@
+ 
+/* search box styles */
+#search-box::placeholder {
+    font-size: 12px !important;
+    color: #28a745 !important;
+  }
+  
+  #search-box:focus {
+    outline: none;
+  }
+  

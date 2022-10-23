@@ -1,0 +1,134 @@
+<main>
+    <div class="container-fluid">
+      <div class="row m-0 p-0">
+        <!-- navigation -->
+        <!-- navigation -->
+        <div class="col-10 offset-2">
+          <div class="col-12 main-content animated fadeIn">
+            <h2 class="mb-3">{{title}}</h2>
+            <div class="d-grid gap-2 d-md-flex ">
+                <a class="btn btn-primary small mr-2 animated fadeIn" routerLink="/">
+                  <i class="fa fa-arrow-left"></i> back
+                </a>
+              </div>
+            <!-- Payment history -->
+            <div class="col-12 history">
+              <div class="alert alert-danger alert-dismissible fade show text-center ml-auto mr-auto" *ngIf="err"
+              role="alert">
+              {{ err }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <form #feeform='ngForm' (ngSubmit)='submit()' class="row g-3 form-horizontal">
+                <div class="table-responsive bg-white ">
+                  <div class="mt-4 g-3">
+                    <div class="col-md-8">
+                      <div class="form-group row">
+                        <label for="agentName" class="col-md-5 control-label">Agent Name</label>
+                        <div class="col-md-6">
+                            <input type="text" name="agentName" class="form-control edit"
+                            id="agentName" #agentName='ngModel' required=""
+                            [(ngModel)]="item.agentName">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="agentName.valid || agentName.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="transactionReference" class="col-md-5 control-label">Transaction Reference</label>
+                        <div class="col-md-6">
+                            <input type="text" name="transactionReference" class="form-control edit"
+                            id="transactionReference" #transactionReference='ngModel' required=""
+                            [(ngModel)]="item.transactionReference">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="transactionReference.valid || transactionReference.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="transactionReference" class="col-md-5 control-label">Terminal ID</label>
+                        <div class="col-md-6">
+                            <input type="text" name="terminalId" class="form-control edit"
+                            id="terminalId" #terminalId='ngModel' required=""
+                            [(ngModel)]="item.terminalId">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="terminalId.valid || terminalId.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="amount" class="col-md-5 control-label">Amount</label>
+                        <div class="col-md-6">
+                            <input type="number" name="amount" class="form-control edit"
+                            id="amount" #amount='ngModel' required=""
+                            [(ngModel)]="item.amount">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="amount.valid || amount.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="processor" class="col-md-5 control-label">Processor</label>
+                        <div class="col-md-6">
+                            <input type="text" name="processor" class="form-control edit"
+                            id="processor" #processor='ngModel' required=""
+                            [(ngModel)]="item.processor">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="processor.valid || processor.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+  
+                      <div class="form-group row">
+                        <label for="dateCreated" class="col-md-5 control-label">Date</label>
+                        <div class="col-md-6">
+                          <input type="date" class="date-picker form-control" name="dateCreated" id="date-picker"
+                          #dateCreated="ngModel" [(ngModel)]="item.dateCreated" required />
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="dateCreated.valid || dateCreated.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="responseCode" class="col-md-5 control-label">Response Code</label>
+                        <div class="col-md-6">
+                            <input type="text" name="responseCode" class="form-control edit"
+                            id="responseCode" #responseCode='ngModel' required=""
+                            [(ngModel)]="item.responseCode">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="responseCode.valid || responseCode.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="responseMessage" class="col-md-5 control-label">Response Message</label>
+                        <div class="col-md-6">
+                            <input type="text" name="responseMessage" class="form-control edit"
+                            id="responseMessage" #responseMessage='ngModel' required=""
+                            [(ngModel)]="item.responseMessage">
+                            <small class="animated fadeIn text-danger"
+                            [class.d-none]="responseMessage.valid || responseMessage.untouched">Field is
+                            required</small>
+                        </div>
+                      </div>
+  
+                    </div>
+  
+  
+                  </div>
+                  <div class="col-md-12 text-right ">
+                    <button type="submit" class="btn btn-primary" id="submitBtn" >Save</button>
+  
+                    <button type="reset" class="btn btn-default" id="submitBtn" >Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+    </div>
+  </main>
+  

@@ -1,0 +1,218 @@
+<main>
+  <div class="container-fluid">
+    <div class="row m-0 p-0">
+      <!-- navigation -->
+      <!-- navigation -->
+      <div class="col-12">
+        <div class="col-12 main-content animated fadeIn">
+          <div class="row m-0">
+            <div class="col-5">
+              <h2 class="">Transactions</h2>
+            </div>
+            <div class="col-7 text-right ">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn btn-primary small mr-2 animated fadeIn" routerLink="add-new">
+                  <i class="fa fa-plus fa-fw"></i> Add New
+                </a>
+                <span class="btn btn-outline-primary small mr-2 animated fadeIn" (click)="toggleHideFilter()"
+                  *ngIf="!hideFilter">
+                  <i class="fa fa-search fa-fw"></i> Search
+                </span>
+
+                <span class="btn btn-outline-primary small mr-2" (click)="resetFiltering()">
+                  <i class="fas fa-sync fa-fw"></i> Reload
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+           
+          <div *ngIf="hideFilter" class="bg-white p-3 border animated fadeIn">
+            <form (ngSubmit)='setupPagination()'>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <span class="panel-title">Search</span>
+                  <div class="float-right">
+                    <a (click)="toggleHideFilter()" class="btn btn-danger text-white justify-content-md-end">
+                      <i class="fa fa-close"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="control-label">Transaction Reference</label>
+                        <input type="text" #transactionReference='ngModel' [(ngModel)]="filter.transactionReference"
+                          name="transactionReference" class="form-control small" placeholder="Transaction Reference" />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="control-label">Response Code</label>
+                        <input type="text" #responseCde='ngModel' [(ngModel)]="filter.responseCode" name="responseCode"
+                          class="form-control small" placeholder="Response Code" />
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="control-label">Start Date</label>
+                        <input type="date" class="date-picker form-control" name="dateCreatedFrom" id="date-picker"
+                          #dateCreatedFrom="ngModel" [(ngModel)]="filter.dateCreatedFrom" required />
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="control-label">End Date</label>
+                        <input type="date" class="date-picker form-control" name="dateCreatedTo" id="date-picker"
+                          #dateCreatedTo="ngModel" [(ngModel)]="filter.dateCreatedTo" required />
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="control-label">Terminal ID</label>
+                        <input type="text" #terminalId='ngModel' [(ngModel)]="filter.terminalId" name="terminalId"
+                          class="form-control small" placeholder="Terminal Id" />
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-6">
+                      <button (click)="resetFiltering()" class="btn btn-light mr-2 small">
+                        <i class="fa fa-close"></i>Reset
+                      </button>
+                      <button type="submit" id="paginationBtn" class="btn btn-primary mr-2 bg-color small mr-2">
+                        <i class="fa fa-search"></i> Search
+                      </button>
+                      
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="clearfix"></div>
+          <!-- Bills -->
+          <div class="col-12 history">
+            <div class="col-12 p-0 mt-4">
+              <!-- table -->
+              <div class="text-center" *ngIf="showSpinner">
+                <small class="fas fa-spinner fa-spin"></small>
+              </div>
+
+              <div class="row m-0" *ngIf="!showSpinner">
+
+                <div class="col-6">
+                  <div>
+                    <label>
+                      Show
+                      <select name="pageSize" #pageSize='ngModel' [(ngModel)]="paginationConfig.pageSize"
+                        (change)="pageSizeChanged(paginationConfig.pageSize)">
+                        <option *ngFor="let option of pageSizes" value="{{option.id}}">{{option.name}}</option>
+                      </select> Entries
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6 text-right d-grid gap-2 d-md-flex justify-content-md-end">
+                  <nav aria-label="Page navigation example">
+                    <pagination-controls (pageChange)='pageChanged($event)' [autoHide]=false nextLabel=''
+                      previousLabel=''>
+                    </pagination-controls>
+                  </nav>
+                </div>
+                <div class="selectors">
+                  <div class="col-2 p-0">
+                    <form class="search-bar-form" #searchForm="ngForm">
+                      <input type="text" class="date-picker text-success" name="search" id="search-box" #search="ngModel"
+                        [(ngModel)]="filterModel.search" [class.is-invalid]="search.invalid && search.touched"
+                        placeholder="Search..." required (input)="searchBar($event.target)" />
+                    </form>
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-center">
+                      <tr>
+                        <th><input type="checkbox" name="isAllItemsChecked" (ngModel)="isAllItemsChecked"
+                            (change)="checkAll()" /></th>
+                        <th>#</th>
+                        <th>Agent Name</th>
+                        <th>Amount</th>
+                        <th>Transaction Reference</th>
+                        <th>Processor</th>
+                        <th>Response Code</th>
+                        <th>Response Message</th>
+                        <th>DATE</th>
+                        <th>Processed</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center animated fadeIn">
+                      <tr *ngFor="let item of items | paginate: {itemsPerPage: paginationConfig.pageSize, currentPage: paginationConfig.page,
+                        totalItems: paginationConfig.total}; let i = index;">
+                        <td><input type="checkbox" name="checked{{i}}" [(ngModel)]="item.checked"
+                            (change)="checkboxChanged()" /></td>
+
+                        <td>{{getIndexSeed(i)}}</td>
+
+                        <td>{{item.agentName}}</td>
+                        <td>{{item.amount| currency: '&#8358;'}}</td>
+                        <td>{{item.transactionReference}}</td>
+                        <td>{{item.processor}}</td>
+                        <td><code>{{item.responseCode}}</code></td>
+                        <td>{{item.responseMessage}}</td>
+                        <td>{{item.dateCreated | date: 'dd/MM/yy h:mm a'}}</td>
+                        <td>{{item.processed?"Yes":"No"}} </td>
+                         <td>
+                           
+                           
+
+                        <div class="btn-group dropup">
+                          <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v"></i>
+                          </button>
+                         
+                          <ul class="dropdown-menu">
+                            <a class="dropdown-item" routerLink="details/{{item.id}}"><span><i class="fa fa-list"></i></span> View</a>
+                                <a class="dropdown-item" routerLink="edit/{{item.id}}" ><span><i class="fa fa-edit"></i></span> Edit</a>
+                                <a class="dropdown-item" (click)="remove(item)" ><span><i class="fa fa-trash"></i></span> Delete</a>
+                          </ul>
+                        </div>
+                         </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+
+              <div class="row m-0">
+                <div class="col-md-5">
+                  {{getPageInfoDescription()}}
+                </div>
+                <div class="col-md-7 text-right d-grid gap-2 d-md-flex justify-content-md-end">
+                  <nav aria-label="Page navigation example">
+                    <pagination-controls (pageChange)='pageChanged($event)' [autoHide]=false nextLabel=''
+                      previousLabel=''>
+                    </pagination-controls>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
