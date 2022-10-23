@@ -1,0 +1,15 @@
+version: "3"
+services: 
+    proxy:
+        build: 
+            context: ./proxy
+            dockerfile: Dockerfile
+        restart: always
+    client:
+        build:
+            context: ./client/my-terminal-transaction-app
+            dockerfile: Dockerfile
+    api:
+        build: 
+            context: ./api
+            dockerfile: InterviewQuestion/Dockerfile
