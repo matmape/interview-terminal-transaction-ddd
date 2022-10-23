@@ -19,4 +19,5 @@ RUN dotnet publish "InterviewQuestion.csproj" -c Release -o /app/publish /p:UseA
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "InterviewQuestion.dll"]
+#ENTRYPOINT ["dotnet", "InterviewQuestion.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet InterviewQuestion.dll
