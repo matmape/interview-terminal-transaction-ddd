@@ -17,6 +17,7 @@ namespace InterviewQuestion.Domain.Entities
         {
             Name = name;
             PhoneNumber = phone;
+            DateCreated = DateTime.UtcNow;
         }
         public void Update(string name, string phoneNumber)
         {

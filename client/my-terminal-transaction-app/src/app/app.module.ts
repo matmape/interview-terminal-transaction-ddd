@@ -12,6 +12,10 @@ import { NewTerminalTransactionComponent } from './components/new-terminal-trans
 import { EditTerminalTransactionComponent } from './components/edit-terminal-transaction/edit-terminal-transaction.component';
 import { TerminalTransactionDetailComponent } from './components/terminal-transaction-detail/terminal-transaction-detail.component';
 import { OverviewComponent } from './components/overview/overview.component';
+import { AgentlistComponent } from './components/agentlist/agentlist.component';
+import { AgentEditComponent } from './components/agent-edit/agent-edit.component';
+import { AgentDetailsComponent } from './components/agent-details/agent-details.component';
+import { AgentCreateComponent } from './components/agent-create/agent-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { OverviewComponent } from './components/overview/overview.component';
     NewTerminalTransactionComponent,
     EditTerminalTransactionComponent,
     TerminalTransactionDetailComponent,
-    OverviewComponent
+    OverviewComponent,
+    AgentlistComponent,
+    AgentEditComponent,
+    AgentDetailsComponent,
+    AgentCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -43,7 +43,7 @@ namespace InterviewQuestion.Domain.Shared
         /// <returns>The response object</returns>
         public static Response<T> Success(T result)
         {
-            var response = new Response<T> { ResultType = ResultType.Success, Result = result };
+            var response = new Response<T> { ResultType = ResultType.Success, Result = result,Message="Successful" };
 
             return response;
         }

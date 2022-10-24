@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using InterviewQuestion.API.Services.Agents;
 using InterviewQuestion.API.Services.TerminalTransactions;
 using InterviewQuestion.API.Validators;
 using InterviewQuestion.Domain.Interfaces;
@@ -15,12 +16,14 @@ namespace InterviewQuestion.API.Extensions
         {
             return services
                 .AddScoped(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>))
-                .AddScoped<ITerminalTransactionRepository, TerminalTransactionRepository>();
+                .AddScoped<ITerminalTransactionRepository, TerminalTransactionRepository>()
+                .AddScoped<IAgentRepository, AgentRepository>();
         }
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             return services
                 .AddScoped<ITerminalTransactionService, TerminalTransactionService>() 
+                .AddScoped<IAgentService, AgentService>() 
                 .AddSingleton<TerminalTransactionData>();
         }
         public static IServiceCollection RegisterFluentValidators(this IServiceCollection services)

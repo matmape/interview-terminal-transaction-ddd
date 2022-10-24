@@ -1,0 +1,131 @@
+[33mcommit 8aa2e1db74026b5147578a2672aa93448b2dd98f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:56:00 2022 +0100
+
+    Updated view template, added base details
+
+[33mcommit bc7db70ef059d5ccf501093017af797015f15372[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:33:23 2022 +0100
+
+    added migration agent
+
+[33mcommit 41d0f488776c6120eac52211b33e72764b7c7ed0[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:26:52 2022 +0100
+
+    implemented Update, Delete and GetById
+
+[33mcommit 85096d60dc16c37663f015a13ac761d24bbc05c8[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:08:13 2022 +0100
+
+    Updated
+
+[33mcommit 6f507c20af80440e5615e25b160fa71fb9d4be62[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:08:06 2022 +0100
+
+    added domain interface for event
+
+[33mcommit be170cf68ee3cdad435744660dcb0f845b998739[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:07:57 2022 +0100
+
+    added agent terminal transaction
+
+[33mcommit b9158b64e4e1d306850b8f6c94a16afc1e3f368a[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:07:44 2022 +0100
+
+    added controller for agent API
+
+[33mcommit bb89122263a4aa08a9f13779ea62616a86f18d03[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:07:30 2022 +0100
+
+    added dto for agent create
+
+[33mcommit d128c8d99a05c94981e5c7aad0109e2b0a74bc2d[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:07:19 2022 +0100
+
+    added create routine for agent
+
+[33mcommit 99872a3fcda46cffe62d979cb070a647351f2409[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:07:05 2022 +0100
+
+    Updated error message
+
+[33mcommit 8311f9a94667b26f26eb73a75d564354a466dfad[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 16:06:48 2022 +0100
+
+    added agent repository
+
+[33mcommit 319b7863f2ac0880b654e9b62c8bca737cb759af[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 15:20:53 2022 +0100
+
+    added new domain object- agent and terminal transaction
+
+[33mcommit 1581fb9b5158d556681daa18d4ef2f569824db52[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Mon Oct 24 09:27:19 2022 +0100
+
+    updated connection string for mssql image
+
+[33mcommit 0738a65bb2bb140cfca190bf4fb130e6d8f5cf09[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sun Oct 23 22:07:18 2022 +0100
+
+    Updated docker configurations
+
+[33mcommit 9fad440ffa964c822b5d2e40a71a7c9a45b3553b[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sun Oct 23 22:06:59 2022 +0100
+
+    added docker compose override for api, added proxy configuration filew
+
+[33mcommit 1a6a467511686aa8c37f1c15535cbae6fcfa565c[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sun Oct 23 21:52:48 2022 +0100
+
+    added configuration file
+
+[33mcommit a6bf8bc51a796a4a86d092eecd046f86ccf86e31[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sun Oct 23 21:47:20 2022 +0100
+
+    merged client and api
+
+[33mcommit bd92ea4c48390b6a3e0665b87796c9dd4b12fff8[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sun Oct 23 21:35:03 2022 +0100
+
+    added dependency mssql
+
+[33mcommit 67cee56915c27daef8b93db280337e39f44b0184[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sun Oct 23 21:30:08 2022 +0100
+
+    added docker compose
+
+[33mcommit 7e6a0c202182b9f7f693f0f50b7e180e7e08af5d[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sat Oct 22 21:40:39 2022 +0100
+
+    Updated routines
+
+[33mcommit d5d49c070cdfa3b9056891c8e4d0ea040951baa6[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sat Oct 22 19:23:19 2022 +0100
+
+    Add project files.
+
+[33mcommit 6101e9e11f322d60e1982288abcdd08f2f87d6f8[m
+Author: matthew.idowu <matthew.idowu@bankly.ng>
+Date:   Sat Oct 22 19:23:17 2022 +0100
+
+    Add .gitattributes, .gitignore, README.md, and LICENSE.txt.
