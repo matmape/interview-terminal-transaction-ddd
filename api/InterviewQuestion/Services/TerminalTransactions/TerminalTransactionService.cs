@@ -106,7 +106,7 @@ namespace InterviewQuestion.API.Services.TerminalTransactions
 					Total = totalCount
                 }) ;
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				return await Task.FromResult(Response<PagedList<TerminalTransactionItem>>.Failed(ErrorMessages.Error_Loading_Content));
 			}

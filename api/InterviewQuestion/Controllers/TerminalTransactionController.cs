@@ -102,7 +102,7 @@ namespace InterviewQuestion.Controllers
                 return BadRequest(Response<TerminalTransactionAddResponse>.Failed(ErrorMessages.Generic_Error));
             }
         }
-        [HttpDelete("{Id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<Response<TerminalTransactionAddResponse>>> Delete(int id)
         {
             try

@@ -1,1 +1,62 @@
-<p>terminal-transaction-detail works!</p>
+<main>
+    <div class="container-fluid">
+        <div class="row m-0 p-0">
+            <!-- navigation -->
+            <!-- navigation -->
+            <div class="col-10 offset-2">
+                <div class="col-12 main-content animated fadeIn">
+                    <h2 class="mb-3">{{title}}</h2>
+                    <div class="d-grid gap-2 d-md-flex float-right">
+                        <a class="btn btn-primary small mr-2 animated fadeIn" routerLink="/">
+                            <i class="fa fa-arrow-left"></i> Back
+                        </a>
+                    </div>
+                    <!-- Payment history -->
+                    <div class="col-12 history">
+                        <div class="alert alert-danger alert-dismissible fade show text-center ml-auto mr-auto"
+                            *ngIf="err" role="alert">
+                            {{ err }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="table-responsive bg-white ">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Agent Name</th>
+                                    <td>{{item.agentName}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Transaction Reference</th>
+                                    <td>{{item.transactionReference}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Amount</th>
+                                    <td>{{item.amount| currency: '&#8358;'}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Processor</th>
+                                    <td>{{item.processor}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Response Code</th>
+                                    <td>{{item.responseCode}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>ResponseMessage</th>
+                                    <td>{{item.responseMessage}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date Created</th>
+                                    <td>{{item.dateCreated | date: 'dd/MM/yy h:mm a'}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+    </div>
+</main>

@@ -54,7 +54,25 @@ export class TerminalTransactionsComponent extends BaseListComponent implements 
     );
   }
 
-  remove(item:any){
+  remove(item: any) {
 
+    if (confirm("Are you sure?")) {
+      this.api.delete(item.id).subscribe(
+        (res) => {
+          if (res.successful) {
+            this.setupPagination();
+          } else {
+
+            this.error = res.validationMessages != null ? res.validationMessages.join(",") : res.message;
+          }
+        },
+        (err) => {
+          this.err = err.error.message;
+          if (err.error.validationMessages != null) {
+            this.error = err.error.validationMessages.join(",");
+          }
+        }
+      );
+    }
   }
 }
