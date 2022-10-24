@@ -10,5 +10,7 @@
         public static string Terminal_Update_Failed = "Terminal transaction update failed";
 
         public static string Terminal_Deletion_Failed = "Terminal Deletion Failed";
+
+        public static string Error_Creating_Agent = "Error creating agent";
     }
 }
