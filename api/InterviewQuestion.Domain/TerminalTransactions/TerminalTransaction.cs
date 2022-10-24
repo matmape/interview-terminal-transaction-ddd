@@ -9,6 +9,26 @@ namespace InterviewQuestion.Domain.TerminalTransactions
 {
     public class TerminalTransaction:BaseEntity<int>
     {
+        private TerminalTransaction() { }
+        public TerminalTransaction(string terminalId, string processor, string transactionReference, 
+            string responseCode, string responseMessage, 
+            string currencyCode, string agentName, string geoLocation,
+            decimal tmsAmount, decimal surcharge)
+        {
+            TerminalId = terminalId;
+            Processor = processor;
+            TransactionReference = transactionReference;
+            ResponseCode = responseCode;
+            ResponseMessage = responseMessage;
+            CurrencyCode = currencyCode;
+            AgentName = agentName;
+            GeoLocation = geoLocation;
+            PaymentDate = DateTime.UtcNow;
+            TmsAmount = tmsAmount;
+            Surcharge = surcharge;
+
+        }
+
         public string TransactionReference { get; set; }
         public string CurrencyCode { get; set; }
         public string AgentName { get; set; }
