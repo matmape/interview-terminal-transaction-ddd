@@ -13,6 +13,17 @@
         public string TerminalId { get; set; }
         public double Surcharge => 10.75;
     }
+    public class TerminalTransactionAddToAgentDto
+    {
+        public string TransactionReference { get; set; }
+        public string AgentName { get; set; }
+        public string ResponseCode { get; set; }
+        public string ResponseMessage { get; set; }
+        public decimal Amount { get; set; }
+        public string Processor { get; set; }
+        public string TerminalId { get; set; }
+        public int AgentId { get;  set; }
+    }
     public class TerminalTransactionUpdateDto
     {
         public int Id { get; set; }
