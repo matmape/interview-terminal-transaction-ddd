@@ -18,7 +18,11 @@ namespace InterviewQuestion.Domain.Entities
             Name = name;
             PhoneNumber = phone;
         }
-
+        public void Update(string name, string phoneNumber)
+        {
+            Name = name;
+            PhoneNumber = phoneNumber;
+        }
         public ICollection<TerminalTransaction> TerminalTransactions { get; } = new List<TerminalTransaction>();
 
         public void AddTerminalTransaction(string terminalId,

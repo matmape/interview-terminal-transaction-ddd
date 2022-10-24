@@ -1,4 +1,5 @@
-﻿using InterviewQuestion.Domain.TerminalTransactions;
+﻿using InterviewQuestion.Domain.Entities;
+using InterviewQuestion.Domain.TerminalTransactions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace InterviewQuestion.Infrastructure.Data
     public class ApplicationDbContext : DbContext
     {
         public virtual DbSet<TerminalTransaction> TerminalTransactions { get; set; }
+        public virtual DbSet<Agent> Agents { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
