@@ -74,7 +74,15 @@ namespace InterviewQuestion
             try
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                 
+                context.Database.Migrate();
+
+                var entities = TerminalTransactionData.GetData();
+                foreach(var entity in entities)
+                {
+                    entity.Id = 0;
+                }
+                context.TerminalTransactions.AddRange(entities);
+                //context.SaveChanges();
             }
             catch (Exception ex)
             {

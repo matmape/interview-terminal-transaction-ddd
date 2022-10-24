@@ -19,8 +19,3 @@ services:
         - MSSQL_PID=Developer
         - SA_PASSWORD=Passw0rd1!
         - MSSQL_AGENT_ENABLED=true
-
-
-        docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
-   -S localhost -U SA -P "<YourStrong@Passw0rd>" \
-   -Q 'ALTER LOGIN SA WITH PASSWORD="Password1!"'

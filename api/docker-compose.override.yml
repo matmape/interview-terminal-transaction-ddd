@@ -5,7 +5,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ConnectionStrings_DefaultConnection='local'
+      - ConnectionStrings__DefaultConnection=Server=mssql;Database=intvwdb;Persist Security Info=True;User ID=sa;Password=Passw0rd1!;MultipleActiveResultSets=true
     ports:
       - "5150:80"
       - "7150:443"

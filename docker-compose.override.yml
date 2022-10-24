@@ -10,8 +10,17 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80 
+      - ConnectionStrings__DefaultConnection=Server=mssql;Database=intvwdb;Persist Security Info=True;User ID=sa;Password=Passw0rd1!;MultipleActiveResultSets=true
     ports: 
       - "8080:80"
     volumes:
       - ${APPDATA}/tmp:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/tmp:/root/.aspnet/https:ro
+  mssql:
+      ports:
+       - "1433:1433"
+      environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_PID=Developer
+        - SA_PASSWORD=Passw0rd1!
+        - MSSQL_AGENT_ENABLED=true

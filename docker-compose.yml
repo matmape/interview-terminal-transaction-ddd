@@ -13,3 +13,7 @@ services:
         build: 
             context: ./api
             dockerfile: InterviewQuestion/Dockerfile
+        depends_on:
+          - mssql
+    mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
